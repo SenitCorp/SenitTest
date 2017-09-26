@@ -18,7 +18,14 @@ namespace Senit.Common.Messaging.RawRabbit.Extensions
 
             return busClient.SubscribeAsync<TEvent, MessageContext>(async (@event, messageContext) =>
             {
-                await handler.HandleAsync(@event, messageContext);
+                try
+                {
+                    await handler.HandleAsync(@event, messageContext);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
 
                 //return new Ack();
             });
