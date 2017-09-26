@@ -1,10 +1,10 @@
-﻿using Senit.Api.Messaging.Commands.Messages;
-using Senit.Common.Messaging.Commands;
+﻿using Senit.Common.Messaging.Commands;
 using System.Threading.Tasks;
 using Senit.Common.Messaging;
 using Microsoft.Extensions.Logging;
+using Senit.Common.Messages.Commands;
 
-namespace Senit.Api.Messaging.Commands.Handlers
+namespace Senit.Api.Handlers.Commands
 {
     public class HelloCommandHandler : ICommandHandler<HelloCommand, HelloCommandResponse>
     {
@@ -20,7 +20,10 @@ namespace Senit.Api.Messaging.Commands.Handlers
         {
             _logger.LogInformation("HelloCommand handled.");
 
-            var response = new HelloCommandResponse();
+            var response = new HelloCommandResponse
+            {
+                ResponseId = command.CommandId
+            };
 
             return Task.FromResult(response);
         }

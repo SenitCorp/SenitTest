@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Senit.Api.Messaging.Commands.Messages
+namespace Senit.Common.Messages.Commands
 {
-    public class HelloCommandResponse : ICommandResponse
+    public class HelloCommand : ICommand
     {
+        public Guid CommandId { get; set; }
     }
 }

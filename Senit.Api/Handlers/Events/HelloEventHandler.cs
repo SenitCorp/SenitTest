@@ -1,13 +1,13 @@
-﻿using Senit.Api.Messaging.Events.Messages;
-using Senit.Common.Messaging.Events;
+﻿using Senit.Common.Messaging.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Senit.Common.Messaging;
 using Microsoft.Extensions.Logging;
+using Senit.Common.Messages.Events;
 
-namespace Senit.Api.Messaging.Events.Handlers
+namespace Senit.Api.Handlers.Events
 {
     public class HelloEventHandler : IEventHandler<HelloEvent>
     {

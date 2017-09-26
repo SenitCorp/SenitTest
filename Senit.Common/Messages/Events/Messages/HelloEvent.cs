@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Senit.Api.Messaging.Events.Messages
+namespace Senit.Common.Messages.Events
 {
     public class HelloEvent : IEvent
     {

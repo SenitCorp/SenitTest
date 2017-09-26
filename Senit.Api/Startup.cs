@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using RawRabbit.Configuration;
-using Senit.Common.Messaging.RawRabbit.Extensions;
-using RawRabbit;
-using Senit.Api.Messaging.Events.Messages;
-using Senit.Api.Messaging.Events.Handlers;
-using Senit.Api.Messaging.Commands.Messages;
-using Senit.Api.Messaging.Commands.Handlers;
-using Senit.Common.Messaging;
-using Senit.Common.Messaging.Events;
+using Senit.Api.Handlers.Commands;
+using Senit.Api.Handlers.Events;
+using Senit.Common.Messages.Commands;
+using Senit.Common.Messages.Events;
 using Senit.Common.Messaging.Commands;
+using Senit.Common.Messaging.Events;
+using Senit.Common.Messaging.RawRabbit.Extensions;
+using System;
+using System.Linq;
 
 namespace Senit.Api
 {

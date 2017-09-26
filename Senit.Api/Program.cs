@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Senit.Api.Messaging.Commands.Handlers;
-using Senit.Api.Messaging.Commands.Messages;
-using Senit.Api.Messaging.Events.Handlers;
-using Senit.Api.Messaging.Events.Messages;
+using Senit.Api.Handlers.Commands;
+using Senit.Api.Handlers.Events;
 using Senit.Common.Hosting;
+using Senit.Common.Messages.Commands;
+using Senit.Common.Messages.Events;
 using System.IO;
 
 namespace Senit.Api

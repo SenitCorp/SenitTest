@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RawRabbit;
-using Senit.Api.Messaging.Commands.Messages;
-using Senit.Api.Messaging.Events.Messages;
+using Senit.Common.Messages.Commands;
+using Senit.Common.Messages.Events;
+using System;
 using System.Threading.Tasks;
 
 namespace Senit.Api.Controllers
@@ -17,7 +18,7 @@ namespace Senit.Api.Controllers
         }
 
         [HttpGet, Route("")]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             return Ok();
         }
@@ -25,9 +26,15 @@ namespace Senit.Api.Controllers
         [HttpGet, Route("test1")]
         public async Task<IActionResult> Test1()
         {
-            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand { });
+            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand
+            {
+                CommandId = Guid.NewGuid()
+            });
 
-            await _busClient.PublishAsync(new HelloEvent());
+            await _busClient.PublishAsync(new HelloEvent
+            {
+                EventId = Guid.NewGuid()
+            });
             
             return Ok();
         }
@@ -35,9 +42,15 @@ namespace Senit.Api.Controllers
         [HttpGet, Route("test2")]
         public async Task<IActionResult> Test2()
         {
-            await _busClient.PublishAsync(new HelloEvent());
+            await _busClient.PublishAsync(new HelloEvent
+            {
+                EventId = Guid.NewGuid()
+            });
 
-            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand { });
+            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand
+            {
+                CommandId = Guid.NewGuid()
+            });
 
             return Ok();
         }
@@ -45,7 +58,10 @@ namespace Senit.Api.Controllers
         [HttpGet, Route("test3")]
         public async Task<IActionResult> Test3()
         {
-            await _busClient.PublishAsync(new HelloEvent());
+            await _busClient.PublishAsync(new HelloEvent
+            {
+                EventId = Guid.NewGuid()
+            });
 
             return Ok();
         }
@@ -53,7 +69,10 @@ namespace Senit.Api.Controllers
         [HttpGet, Route("test4")]
         public async Task<IActionResult> Test4()
         {
-            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand { });
+            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand
+            {
+                CommandId = Guid.NewGuid()
+            });
 
             return Ok();
         }
