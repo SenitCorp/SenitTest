@@ -1,8 +1,0 @@
-C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Common\bin\Debug\netcoreapp2.0\Senit.Common.deps.json
-C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Common\bin\Debug\netcoreapp2.0\Senit.Common.dll
-C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Common\bin\Debug\netcoreapp2.0\Senit.Common.pdb
-C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.csproj.CoreCompileInputs.cache
-C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.AssemblyInfoInputs.cache
-C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.AssemblyInfo.cs
-C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.dll
-C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.pdb
