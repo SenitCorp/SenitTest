@@ -8,5 +8,6 @@ namespace Senit.Api.Messaging.Commands.Messages
 {
     public class HelloCommand : ICommand
     {
+        public Guid CommandId { get; set; }
     }
 }

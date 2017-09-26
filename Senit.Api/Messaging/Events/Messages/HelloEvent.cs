@@ -8,5 +8,6 @@ namespace Senit.Api.Messaging.Events.Messages
 {
     public class HelloEvent : IEvent
     {
+        public Guid EventId { get; set; }
     }
 }

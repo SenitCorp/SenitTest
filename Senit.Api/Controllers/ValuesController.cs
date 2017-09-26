@@ -25,9 +25,22 @@ namespace Senit.Api.Controllers
         [HttpGet]
         public async Task<IEnumerable<string>> Get()
         {
-            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand { });
 
-            await _busClient.PublishAsync(new HelloEvent());
+            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand
+            {
+                CommandId = Guid.NewGuid()
+            });
+
+            for(int i = 1000; i > 1; i--)
+            {
+                Console.WriteLine(i);
+            }
+
+            await _busClient.PublishAsync<HelloEvent>(new HelloEvent
+            {
+                EventId = Guid.NewGuid()
+            });
+
 
             return new string[] { "value1", "value2" };
         }

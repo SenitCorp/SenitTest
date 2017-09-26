@@ -1,0 +1,13 @@
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\bin\Debug\netcoreapp2.0\Senit.Api.deps.json
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\bin\Debug\netcoreapp2.0\Senit.Api.runtimeconfig.json
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\bin\Debug\netcoreapp2.0\Senit.Api.runtimeconfig.dev.json
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\bin\Debug\netcoreapp2.0\Senit.Api.dll
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\bin\Debug\netcoreapp2.0\Senit.Api.pdb
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\bin\Debug\netcoreapp2.0\Senit.Common.dll
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\bin\Debug\netcoreapp2.0\Senit.Common.pdb
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\obj\Debug\netcoreapp2.0\Senit.Api.csprojResolveAssemblyReference.cache
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\obj\Debug\netcoreapp2.0\Senit.Api.csproj.CoreCompileInputs.cache
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\obj\Debug\netcoreapp2.0\Senit.Api.AssemblyInfoInputs.cache
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\obj\Debug\netcoreapp2.0\Senit.Api.AssemblyInfo.cs
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\obj\Debug\netcoreapp2.0\Senit.Api.dll
+C:\Users\Robert Campbell\Desktop\Projects\Senit\Senit.Api\obj\Debug\netcoreapp2.0\Senit.Api.pdb
