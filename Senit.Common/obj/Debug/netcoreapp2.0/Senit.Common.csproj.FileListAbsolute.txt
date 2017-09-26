@@ -1,0 +1,9 @@
+C:\Users\senit\Desktop\Projects\SenitTest\Senit.Common\bin\Debug\netcoreapp2.0\Senit.Common.deps.json
+C:\Users\senit\Desktop\Projects\SenitTest\Senit.Common\bin\Debug\netcoreapp2.0\Senit.Common.dll
+C:\Users\senit\Desktop\Projects\SenitTest\Senit.Common\bin\Debug\netcoreapp2.0\Senit.Common.pdb
+C:\Users\senit\Desktop\Projects\SenitTest\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.csproj.CoreCompileInputs.cache
+C:\Users\senit\Desktop\Projects\SenitTest\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.AssemblyInfoInputs.cache
+C:\Users\senit\Desktop\Projects\SenitTest\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.AssemblyInfo.cs
+C:\Users\senit\Desktop\Projects\SenitTest\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.dll
+C:\Users\senit\Desktop\Projects\SenitTest\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.pdb
+C:\Users\senit\Desktop\Projects\SenitTest\Senit.Common\obj\Debug\netcoreapp2.0\Senit.Common.csprojResolveAssemblyReference.cache
