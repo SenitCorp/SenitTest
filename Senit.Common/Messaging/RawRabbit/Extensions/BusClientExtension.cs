@@ -20,7 +20,7 @@ namespace Senit.Common.Messaging.RawRabbit.Extensions
             {
                 await handler.HandleAsync(@event, messageContext);
 
-                return new Ack();
+                //return new Ack();
             });
         }
 

@@ -1,7 +1,4 @@
 ﻿using Senit.Common.Messaging.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Senit.Common.Messaging;
 using Microsoft.Extensions.Logging;
@@ -22,7 +19,7 @@ namespace Senit.Api.Handlers.Events
         {
             _logger.LogInformation("HelloEvent handled.");
 
-            return Task.FromResult(0);
+            return Task.CompletedTask;
         }
     }
 }
