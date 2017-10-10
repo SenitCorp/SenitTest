@@ -18,7 +18,7 @@ namespace Senit.Api.Handlers.Commands
 
         public Task<HelloCommandResponse> HandleAsync(HelloCommand command, MessageContext messageContext)
         {
-            _logger.LogInformation("HelloCommand handled.");
+            _logger.LogInformation($"HelloCommand handled from Source: '{messageContext.Source}'.");
 
             var response = new HelloCommandResponse
             {

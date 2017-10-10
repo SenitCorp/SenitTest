@@ -1,8 +1,10 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 using RawRabbit;
 using RawRabbit.Configuration;
 using RawRabbit.DependencyInjection.ServiceCollection;
 using RawRabbit.Enrichers.GlobalExecutionId;
+using RawRabbit.Enrichers.HttpContext;
 using RawRabbit.Enrichers.MessageContext;
 using RawRabbit.Instantiation;
 
@@ -20,6 +22,7 @@ namespace Senit.Common.Messaging.RawRabbit.Extensions
                     .UseHttpContext()
                     .UseMessageContext(ctx => new MessageContext
                     {
+                        Source = ctx.GetHttpContext().Request.GetDisplayUrl(),
                         ExecutionId = ctx.GetGlobalExecutionId()
                     })
                     .UseAttributeRouting()

@@ -22,7 +22,7 @@ namespace Senit.Common.Hosting
 
         public BusBuilder AddEventHandler<TEvent, TEventHandler>() where TEvent : IEvent where TEventHandler : IEventHandler<TEvent>
         {
-            _busClient.AddEventHandler<TEvent, TEventHandler>(_serviceProvider).Wait();
+            _busClient.AddEventHandler<TEvent, TEventHandler>(_serviceProvider);
 
             return this;
         }
@@ -32,7 +32,7 @@ namespace Senit.Common.Hosting
             where TCommandResponse : ICommandResponse
             where TCommandHandler : ICommandHandler<TCommand, TCommandResponse>
         {
-            _busClient.AddCommandHandler<TCommand, TCommandResponse, TCommandHandler>(_serviceProvider).Wait();
+            _busClient.AddCommandHandler<TCommand, TCommandResponse, TCommandHandler>(_serviceProvider);
 
             return this;
         }

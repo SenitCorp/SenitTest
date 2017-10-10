@@ -35,7 +35,7 @@ namespace Senit.Api.Controllers
             {
                 EventId = Guid.NewGuid()
             });
-            
+
             return Ok();
         }
 
@@ -74,7 +74,7 @@ namespace Senit.Api.Controllers
                 CommandId = Guid.NewGuid()
             });
 
-            return Ok();
+            return Ok(new { responseId = response.ResponseId });
         }
     }
 }

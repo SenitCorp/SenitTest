@@ -17,7 +17,7 @@ namespace Senit.Api.Handlers.Events
 
         public Task HandleAsync(HelloEvent @event, MessageContext messageContext)
         {
-            _logger.LogInformation("HelloEvent handled.");
+            _logger.LogInformation($"HelloEvent handled from Source: '{messageContext.Source}'.");
 
             return Task.CompletedTask;
         }
