@@ -1,7 +1,7 @@
 ﻿using Senit.Common.Messaging.Commands;
 using System;
 
-namespace Senit.Common.Messages.Commands
+namespace Senit.Messages.Commands
 {
     public class HelloCommandResponse : ICommandResponse
     {

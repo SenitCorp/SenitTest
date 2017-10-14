@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Senit.Common.Messaging;
 using Microsoft.Extensions.Logging;
-using Senit.Common.Messages.Commands;
+using Senit.Messages.Commands;
 
 namespace Senit.Api.Handlers.Commands
 {

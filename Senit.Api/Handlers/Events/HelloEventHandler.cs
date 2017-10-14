@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Senit.Common.Messaging;
 using Microsoft.Extensions.Logging;
-using Senit.Common.Messages.Events;
+using Senit.Messages.Events;
 
 namespace Senit.Api.Handlers.Events
 {

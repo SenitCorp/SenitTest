@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Senit.Common.Messages.Commands
+namespace Senit.Messages.Commands
 {
     public class HelloCommand : ICommand
     {

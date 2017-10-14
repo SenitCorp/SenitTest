@@ -20,8 +20,6 @@ namespace Senit.Common.Messaging.RawRabbit.Extensions
                 var handler = serviceProvider.GetRequiredService<IEventHandler<TEvent>>();
 
                 await handler.HandleAsync(@event, messageContext);
-
-                //return new Ack();
             });
         }
 

@@ -3,8 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Senit.Api.Handlers.Commands;
 using Senit.Api.Handlers.Events;
 using Senit.Common.Hosting;
-using Senit.Common.Messages.Commands;
-using Senit.Common.Messages.Events;
+using Senit.Messages.Commands;
+using Senit.Messages.Events;
 using System.IO;
 
 namespace Senit.Api
