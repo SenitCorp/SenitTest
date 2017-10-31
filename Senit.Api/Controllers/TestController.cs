@@ -1,7 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using RawRabbit;
-using Senit.Common.Messages.Commands;
-using Senit.Common.Messages.Events;
+using RawRabbit.Enrichers.MessageContext;
+using Senit.Common.Messaging;
+using Senit.Common.Messaging.Commands;
+using Senit.Messages.Commands;
+using Senit.Messages.Events;
 using System;
 using System.Threading.Tasks;
 
@@ -11,70 +17,46 @@ namespace Senit.Api.Controllers
     public class TestController : Controller
     {
         private readonly IBusClient _busClient;
+        private readonly ILogger _logger;
 
-        public TestController(IBusClient busClient)
+        public TestController(IBusClient busClient, ILoggerFactory loggerFactory)
         {
             _busClient = busClient;
+            _logger = loggerFactory.CreateLogger<TestController>();
         }
 
         [HttpGet, Route("")]
-        public IActionResult Get()
+        public async Task<IActionResult> Get()
         {
-            return Ok();
-        }
+            var messageContext = new MessageContext
+            {
+                Source = Request.GetDisplayUrl(),
+                ExecutionId = Guid.NewGuid().ToString()
+            };
 
-        [HttpGet, Route("test1")]
-        public async Task<IActionResult> Test1()
-        {
-            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand
+            var globalExecutionId = Guid.NewGuid().ToString();
+
+            _logger.LogInformation($"ExecutionId: {messageContext.ExecutionId}");
+
+            var response = await _busClient.RequestAsync<HelloCommand, CommandResponse<HelloCommandResponse>>(new HelloCommand
             {
                 CommandId = Guid.NewGuid()
+            }, options =>
+            {
+                options.UseMessageContext(messageContext);
             });
+
+            _logger.LogInformation($"Response: {JsonConvert.SerializeObject(response)}");
 
             await _busClient.PublishAsync(new HelloEvent
             {
                 EventId = Guid.NewGuid()
+            }, options =>
+            {
+                options.UseMessageContext(messageContext);
             });
 
             return Ok();
-        }
-
-        [HttpGet, Route("test2")]
-        public async Task<IActionResult> Test2()
-        {
-            await _busClient.PublishAsync(new HelloEvent
-            {
-                EventId = Guid.NewGuid()
-            });
-
-            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand
-            {
-                CommandId = Guid.NewGuid()
-            });
-
-            return Ok();
-        }
-
-        [HttpGet, Route("test3")]
-        public async Task<IActionResult> Test3()
-        {
-            await _busClient.PublishAsync(new HelloEvent
-            {
-                EventId = Guid.NewGuid()
-            });
-
-            return Ok();
-        }
-
-        [HttpGet, Route("test4")]
-        public async Task<IActionResult> Test4()
-        {
-            var response = await _busClient.RequestAsync<HelloCommand, HelloCommandResponse>(new HelloCommand
-            {
-                CommandId = Guid.NewGuid()
-            });
-
-            return Ok(new { responseId = response.ResponseId });
         }
     }
 }

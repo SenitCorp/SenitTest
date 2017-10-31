@@ -16,16 +16,16 @@ namespace Senit.Api.Handlers.Commands
 
         }
 
-        public Task<HelloCommandResponse> HandleAsync(HelloCommand command, MessageContext messageContext)
+        public Task<CommandResponse<HelloCommandResponse>> HandleAsync(HelloCommand command, MessageContext messageContext)
         {
-            _logger.LogInformation($"HelloCommand handled from Source: '{messageContext.Source}'.");
+            _logger.LogInformation($"HelloCommand handled from Source: '{messageContext.Source}'. ExecutionId='{messageContext.ExecutionId}'.");
 
             var response = new HelloCommandResponse
             {
                 ResponseId = command.CommandId
             };
 
-            return Task.FromResult(response);
+            return Task.FromResult(new CommandResponse<HelloCommandResponse>(response));
         }
     }
 }

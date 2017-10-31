@@ -27,8 +27,8 @@ namespace Senit.Api
 
             return WebServiceHost.Create<Startup>(args: args, configuration: configuration)
                 .UseRabbitMq()
-                    .AddEventHandler<HelloEvent, HelloEventHandler>()
-                    .AddCommandHandler<HelloCommand, HelloCommandResponse, HelloCommandHandler>()
+                    .AddEventHandler<HelloEvent>()
+                    .AddCommandHandler<HelloCommand, HelloCommandResponse>()
                 .Build()
             .GetHost();
         }

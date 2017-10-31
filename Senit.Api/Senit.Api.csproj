@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Senit.Common\Senit.Common.csproj" />
+    <ProjectReference Include="..\Senit.Messages\Senit.Messages.csproj" />
   </ItemGroup>
 
 </Project>

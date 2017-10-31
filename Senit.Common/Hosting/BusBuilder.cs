@@ -20,19 +20,18 @@ namespace Senit.Common.Hosting
             _serviceProvider = serviceProvider;
         }
 
-        public BusBuilder AddEventHandler<TEvent, TEventHandler>() where TEvent : IEvent where TEventHandler : IEventHandler<TEvent>
+        public BusBuilder AddEventHandler<TEvent>() where TEvent : IEvent
         {
-            _busClient.AddEventHandler<TEvent, TEventHandler>(_serviceProvider);
+            _busClient.AddEventHandler<TEvent>(_serviceProvider);
 
             return this;
         }
 
-        public BusBuilder AddCommandHandler<TCommand, TCommandResponse, TCommandHandler>()
+        public BusBuilder AddCommandHandler<TCommand, TCommandResponse>()
             where TCommand : ICommand
             where TCommandResponse : ICommandResponse
-            where TCommandHandler : ICommandHandler<TCommand, TCommandResponse>
         {
-            _busClient.AddCommandHandler<TCommand, TCommandResponse, TCommandHandler>(_serviceProvider);
+            _busClient.AddCommandHandler<TCommand, TCommandResponse>(_serviceProvider);
 
             return this;
         }

@@ -10,9 +10,8 @@ namespace Senit.Common.Messaging.RawRabbit.Extensions
 {
     public static class BusClientExtension
     {
-        public static void AddEventHandler<TEvent, TEventHandler>(this IBusClient busClient, IServiceProvider serviceProvider)
+        public static void AddEventHandler<TEvent>(this IBusClient busClient, IServiceProvider serviceProvider)
             where TEvent : IEvent
-            where TEventHandler : IEventHandler<TEvent>
         {
 
             busClient.SubscribeAsync<TEvent, MessageContext>(async (@event, messageContext) =>
@@ -23,13 +22,12 @@ namespace Senit.Common.Messaging.RawRabbit.Extensions
             });
         }
 
-        public static void AddCommandHandler<TCommand, TCommandResponse, TCommandHandler>(this IBusClient busClient, IServiceProvider serviceProvider)
+        public static void AddCommandHandler<TCommand, TCommandResponse>(this IBusClient busClient, IServiceProvider serviceProvider)
             where TCommand : ICommand
             where TCommandResponse : ICommandResponse
-            where TCommandHandler : ICommandHandler<TCommand, TCommandResponse>
         {
 
-            busClient.RespondAsync<TCommand, TCommandResponse, MessageContext>(async (command, messageContext) =>
+            busClient.RespondAsync<TCommand, CommandResponse<TCommandResponse>, MessageContext>(async (command, messageContext) =>
             {
                 var handler = serviceProvider.GetRequiredService<ICommandHandler<TCommand, TCommandResponse>>();
 

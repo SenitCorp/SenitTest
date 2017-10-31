@@ -7,6 +7,6 @@ namespace Senit.Common.Messaging.Commands
 {
     public interface ICommandHandler<TCommand, TCommandResponse> where TCommand : ICommand where TCommandResponse : ICommandResponse
     {
-        Task<TCommandResponse> HandleAsync(TCommand command, MessageContext messageContext);
+        Task<CommandResponse<TCommandResponse>> HandleAsync(TCommand command, MessageContext messageContext);
     }
 }
