@@ -1,10 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using RawRabbit;
-using RawRabbit.Common;
 using Senit.Common.Messaging.Commands;
 using Senit.Common.Messaging.Events;
 using System;
-using System.Threading.Tasks;
 
 namespace Senit.Common.Messaging.RawRabbit.Extensions
 {

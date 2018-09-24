@@ -30,7 +30,7 @@ namespace Senit.Api
                     .AddEventHandler<HelloEvent>()
                     .AddCommandHandler<HelloCommand, HelloCommandResponse>()
                 .Build()
-            .GetHost();
+                .GetHost();
         }
     }
 }
