@@ -22,11 +22,7 @@ namespace Senit.Api
                 .Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
-
-        public static void BuildWebHost(string[] args)
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
         {
             var configuration = new ConfigurationBuilder()
                    .SetBasePath(Directory.GetCurrentDirectory())
@@ -34,6 +30,10 @@ namespace Senit.Api
                    .AddEnvironmentVariables()
                    .AddCommandLine(args)
                    .Build();
+
+            return WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(configuration)
+                .UseStartup<Startup>();
         }
     }
 }
