@@ -28,12 +28,6 @@ namespace Senit.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-
-            services.AddRawRabbit(GetRawRabbitConfiguration());
-
-            services.AddTransient<IEventHandler<HelloEvent>, HelloEventHandler>();
-
-            services.AddTransient<ICommandHandler<HelloCommand, HelloCommandResponse>, HelloCommandHandler>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,18 +39,6 @@ namespace Senit.Api
             }
 
             app.UseMvc();
-        }
-
-        private RawRabbitConfiguration GetRawRabbitConfiguration()
-        {
-            var section = Configuration.GetSection("RawRabbit");
-
-            if (!section.GetChildren().Any())
-            {
-                throw new ArgumentException($"Unable to get configuration section 'RawRabbit'. Make sure it exists in the provided configuration");
-            }
-
-            return section.Get<RawRabbitConfiguration>();
         }
     }
 }

@@ -11,7 +11,6 @@ namespace Senit.Common.Messaging.RawRabbit.Extensions
         public static void AddEventHandler<TEvent>(this IBusClient busClient, IServiceProvider serviceProvider)
             where TEvent : IEvent
         {
-
             busClient.SubscribeAsync<TEvent, MessageContext>(async (@event, messageContext) =>
             {
                 var handler = serviceProvider.GetRequiredService<IEventHandler<TEvent>>();
