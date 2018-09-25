@@ -36,9 +36,9 @@ namespace Senit.Common.Hosting
             return this;
         }
 
-        public WebServiceHost Build()
+        public IWebHost Build()
         {
-            return new WebServiceHost(_webHost);
+            return _webHost;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Senit.Api.Handlers.Commands;
 using Senit.Api.Handlers.Events;
@@ -13,10 +14,19 @@ namespace Senit.Api
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).Run();
+            CreateWebHostBuilder(args)
+                .UseRabbitMq()
+                    .AddEventHandler<HelloEvent>()
+                    .AddCommandHandler<HelloCommand, HelloCommandResponse>()
+                .Build()
+                .Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args)
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>();
+
+        public static void BuildWebHost(string[] args)
         {
             var configuration = new ConfigurationBuilder()
                    .SetBasePath(Directory.GetCurrentDirectory())
@@ -24,13 +34,6 @@ namespace Senit.Api
                    .AddEnvironmentVariables()
                    .AddCommandLine(args)
                    .Build();
-
-            return WebServiceHost.Create<Startup>(args: args, configuration: configuration)
-                .UseRabbitMq()
-                    .AddEventHandler<HelloEvent>()
-                    .AddCommandHandler<HelloCommand, HelloCommandResponse>()
-                .Build()
-                .GetHost();
         }
     }
 }
