@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Senit.Common\Senit.Common.csproj" />
+    <ProjectReference Include="..\Senit.Core\Senit.Core.csproj" />
   </ItemGroup>
 
 </Project>

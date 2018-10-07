@@ -1,8 +1,5 @@
-﻿using Senit.Common.Messaging.Commands;
+﻿using Senit.Core.Messaging.Commands;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Senit.Messages.Commands
 {

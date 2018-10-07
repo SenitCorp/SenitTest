@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Senit.Common", "Senit.Common\Senit.Common.csproj", "{F62BD0B3-B25B-400C-BBAA-5B2E76FAC709}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Senit.Api", "Senit.Api\Senit.Api.csproj", "{3A8720B1-4F28-4E9D-BA3D-63F7F90D0938}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Senit.Messages", "Senit.Messages\Senit.Messages.csproj", "{E0BB488E-D8E4-49DC-A199-6D9CA6C870AE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Senit.Core", "Senit.Core\Senit.Core.csproj", "{5171394C-3006-48DE-902B-F1939F5CE718}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F62BD0B3-B25B-400C-BBAA-5B2E76FAC709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F62BD0B3-B25B-400C-BBAA-5B2E76FAC709}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F62BD0B3-B25B-400C-BBAA-5B2E76FAC709}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F62BD0B3-B25B-400C-BBAA-5B2E76FAC709}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A8720B1-4F28-4E9D-BA3D-63F7F90D0938}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A8720B1-4F28-4E9D-BA3D-63F7F90D0938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A8720B1-4F28-4E9D-BA3D-63F7F90D0938}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{E0BB488E-D8E4-49DC-A199-6D9CA6C870AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0BB488E-D8E4-49DC-A199-6D9CA6C870AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0BB488E-D8E4-49DC-A199-6D9CA6C870AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5171394C-3006-48DE-902B-F1939F5CE718}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5171394C-3006-48DE-902B-F1939F5CE718}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5171394C-3006-48DE-902B-F1939F5CE718}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5171394C-3006-48DE-902B-F1939F5CE718}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

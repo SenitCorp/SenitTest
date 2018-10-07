@@ -1,4 +1,4 @@
-﻿namespace Senit.Common.Messaging.Commands
+﻿namespace Senit.Core.Messaging.Commands
 {
     public class CommandResponse<T> where T : ICommandResponse
     {

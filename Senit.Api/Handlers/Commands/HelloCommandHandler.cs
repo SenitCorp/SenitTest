@@ -1,24 +1,24 @@
-﻿using Senit.Common.Messaging.Commands;
-using System.Threading.Tasks;
-using Senit.Common.Messaging;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
+using Senit.Core.Messaging.Commands;
+using Senit.Core.Messaging.RawRabbit;
 using Senit.Messages.Commands;
+using System.Threading.Tasks;
 
 namespace Senit.Api.Handlers.Commands
 {
     public class HelloCommandHandler : ICommandHandler<HelloCommand, HelloCommandResponse>
     {
-        private readonly ILogger _logger;
+        private readonly ILogger<HelloCommandHandler> _logger;
 
-        public HelloCommandHandler(ILoggerFactory loggerFactory)
+        public HelloCommandHandler(ILogger<HelloCommandHandler> logger)
         {
-            _logger = loggerFactory.CreateLogger<HelloCommandHandler>();
+            _logger = logger;
 
         }
 
-        public Task<CommandResponse<HelloCommandResponse>> HandleAsync(HelloCommand command, MessageContext messageContext)
+        public Task<CommandResponse<HelloCommandResponse>> HandleAsync(HelloCommand command)
         {
-            _logger.LogInformation($"HelloCommand handled from Source: '{messageContext.Source}'. ExecutionId='{messageContext.ExecutionId}'.");
+            _logger.LogInformation($"HelloCommand handled from {GetType().Name}.");
 
             var response = new HelloCommandResponse
             {

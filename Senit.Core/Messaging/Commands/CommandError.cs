@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Senit.Common.Messaging.Commands
+namespace Senit.Core.Messaging.Commands
 {
     public class CommandError
     {

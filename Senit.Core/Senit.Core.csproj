@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>Senit.Core</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.2.3</Version>
+    <Authors>Robert Campbell</Authors>
+    <Company>Senit Services Ltd.</Company>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="EasyNetQ" Version="3.3.1" />
+    <PackageReference Include="EasyNetQ.DI.Microsoft" Version="3.3.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.1.1" />
+    <PackageReference Include="RabbitMQ.Client" Version="5.1.0" />
+    <PackageReference Include="RawRabbit" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.DependencyInjection.ServiceCollection" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.Attributes" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.RetryLater" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.MessageContext.Respond" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.QueueSuffix" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.GlobalExecutionId" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.HttpContext" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.MessageContext" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.MessageContext.Subscribe" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Operations.MessageSequence" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Operations.Request" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Operations.Publish" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Operations.Respond" Version="2.0.0-rc5" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
+  </ItemGroup>
+</Project>

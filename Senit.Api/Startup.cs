@@ -2,16 +2,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RawRabbit.Configuration;
-using Senit.Api.Handlers.Commands;
-using Senit.Api.Handlers.Events;
-using Senit.Messages.Commands;
-using Senit.Messages.Events;
-using Senit.Common.Messaging.Commands;
-using Senit.Common.Messaging.Events;
-using Senit.Common.Messaging.RawRabbit.Extensions;
-using System;
-using System.Linq;
 
 namespace Senit.Api
 {

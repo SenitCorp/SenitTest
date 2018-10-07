@@ -1,4 +1,4 @@
-﻿using Senit.Common.Messaging.Commands;
+﻿using Senit.Core.Messaging.Commands;
 using System;
 
 namespace Senit.Messages.Commands

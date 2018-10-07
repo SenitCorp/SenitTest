@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Senit.Common\Senit.Common.csproj" />
+    <ProjectReference Include="..\Senit.Core\Senit.Core.csproj" />
     <ProjectReference Include="..\Senit.Messages\Senit.Messages.csproj" />
   </ItemGroup>
 

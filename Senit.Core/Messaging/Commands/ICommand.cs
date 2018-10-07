@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Senit.Core.Messaging.Messages;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Senit.Common.Messaging.Commands
+namespace Senit.Core.Messaging.Commands
 {
     public interface ICommand : IMessage
     {

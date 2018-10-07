@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Senit.Api.Handlers.Events
 {
-    public class HelloEventHandler : IEventHandler<HelloEvent>
+    public class HelloTestEventHandler : IEventHandler<HelloEvent>
     {
-        private readonly ILogger<HelloEventHandler> _logger;
+        private readonly ILogger<HelloTestEventHandler> _logger;
 
-        public HelloEventHandler(ILogger<HelloEventHandler> logger)
+        public HelloTestEventHandler(ILogger<HelloTestEventHandler> logger)
         {
             _logger = logger;
         }
