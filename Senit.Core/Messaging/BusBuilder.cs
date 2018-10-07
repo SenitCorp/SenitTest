@@ -60,14 +60,7 @@ namespace Senit.Core.Messaging
             var host = _webHostBuilder
                 .ConfigureServices(serviceCollection =>
                 {
-                    if (_busRegistrationFunction != null)
-                    {
-                        _busRegistrationFunction.Invoke(serviceCollection);
-                    }
-                    else
-                    {
-                        throw new Exception($"The busRegistration function must be provided.");
-                    }
+                    _busRegistrationFunction?.Invoke(serviceCollection);
 
                     foreach (var @event in _events)
                     {
