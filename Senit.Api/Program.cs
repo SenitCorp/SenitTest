@@ -22,8 +22,8 @@ namespace Senit.Api
         {
             var configuration = new ConfigurationBuilder()
                    .SetBasePath(Directory.GetCurrentDirectory())
-                   .AddJsonFile("hosting.json", optional: true)
-                   .AddJsonFile("appsettings.json", optional: true)
+                   .AddJsonFile("hosting.json", optional: false)
+                   .AddJsonFile("appsettings.json", optional: false)
                    .AddEnvironmentVariables()
                    .AddCommandLine(args)
                    .Build();
