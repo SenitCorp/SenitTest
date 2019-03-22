@@ -45,7 +45,14 @@ namespace Senit.Core.Messaging.EasyNetQ
             {
                 _bus.SubscribeAsync<TEvent>(typeof(TImplementationType).Name, async (@event) =>
                 {
-                    await eventHandler.HandleAsync(@event);
+                    try
+                    {
+                        await eventHandler.HandleAsync(@event);
+                    }
+                    catch (Exception ex)
+                    {
+                        await eventHandler.OnError(@event, ex);
+                    }
                 });
             }
             else
@@ -67,7 +74,14 @@ namespace Senit.Core.Messaging.EasyNetQ
             {
                 _bus.SubscribeAsync<TMessage>(typeof(TImplementationType).Name, async (message) =>
                 {
-                    await messageHandler.HandleAsync(message);
+                    try
+                    {
+                        await messageHandler.HandleAsync(message);
+                    }
+                    catch(Exception ex)
+                    {
+                        await messageHandler.OnError(message, ex);
+                    }
                 });
             }
             else
@@ -91,21 +105,37 @@ namespace Senit.Core.Messaging.EasyNetQ
             });
         }
 
-        public Task SubscribeAsync<TMessage>(Func<TMessage, Task> subscribeMethod) where TMessage : class
+        public Task SubscribeAsync<TMessage>(Func<TMessage, Task> subscribeMethod, Func<TMessage, Exception, Task> onErrorMethod = null) where TMessage : class
         {
             _bus.SubscribeAsync<TMessage>(typeof(TMessage).Name, (message) =>
             {
-                return subscribeMethod.Invoke(message);
+                try
+                {
+                    subscribeMethod.Invoke(message);
+                }
+                catch (Exception ex)
+                {
+                    onErrorMethod?.Invoke(message, ex);
+                }
+                return Task.CompletedTask;
             });
 
             return Task.CompletedTask;
         }
 
-        public Task SubscribeAsync<TMessage>(string queueName, Func<TMessage, Task> subscribeMethod) where TMessage : class
+        public Task SubscribeAsync<TMessage>(string queueName, Func<TMessage, Task> subscribeMethod, Func<TMessage, Exception, Task> onErrorMethod = null) where TMessage : class
         {
             _bus.SubscribeAsync<TMessage>(typeof(TMessage).Name, (message) =>
             {
-                return subscribeMethod.Invoke(message);
+                try
+                {
+                    subscribeMethod.Invoke(message);
+                }
+                catch (Exception ex)
+                {
+                    onErrorMethod?.Invoke(message, ex);
+                }
+                return Task.CompletedTask;
             }, options =>
             {
                 options.WithQueueName(queueName);

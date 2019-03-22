@@ -10,6 +10,7 @@ using System;
 using System.IO;
 using System.Linq;
 using Senit.Core.Messaging.EasyNetQ.Extensions;
+using Senit.Core.Messaging.RawRabbit.Extensions;
 using RawRabbit.Configuration;
 
 namespace Senit.Api
@@ -46,8 +47,8 @@ namespace Senit.Api
 
             CreateWebHostBuilder(args)
                 .UseConfiguration(configuration)
-                    .UseEasyNetQ(services => { services.AddEasyNetQ(easyNetQConfig.ConnectionString); })
-                    //.UseRabbitMq((services) => { services.AddRawRabbit(rawRabbitConfig); })
+                    //.UseEasyNetQ(services => { services.AddEasyNetQ(easyNetQConfig.ConnectionString); })
+                    .UseRabbitMq((services) => { services.AddRawRabbit(rawRabbitConfig); })
                     .AddEventHandler<HelloEvent, HelloEventHandler>()
                     .AddEventHandler<HelloEvent, HelloTestEventHandler>()
                     .AddCommandHandler<HelloCommand, HelloCommandResponse, HelloCommandHandler>()

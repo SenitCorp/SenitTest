@@ -8,5 +8,7 @@ namespace Senit.Core.Messaging.Messages
     public interface IMessageHandler<TMessage> : IMessageHandlerDescriptor<TMessage, IMessageHandler<TMessage>> where TMessage : IMessage
     {
         Task HandleAsync(TMessage message);
+
+        Task OnError(TMessage message, Exception ex);
     }
 }

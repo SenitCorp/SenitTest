@@ -5,7 +5,6 @@ using RawRabbit.Enrichers.MessageContext;
 using RawRabbit.Enrichers.MessageContext.Subscribe;
 using Senit.Core.Messaging.Commands;
 using Senit.Core.Messaging.Events;
-using Senit.Core.Messaging.Exceptions;
 using Senit.Core.Messaging.Messages;
 using System;
 using System.Linq;
@@ -54,8 +53,9 @@ namespace Senit.Core.Messaging.RawRabbit
                         await eventHandler.HandleAsync(@event);
                         return new Ack();
                     }
-                    catch (EventHandlerException)
+                    catch (Exception ex)
                     {
+                        await eventHandler.OnError(@event, ex);
                         return new Nack(true);
                     }
                 }, ctx => ctx.UseMessageContext(c =>
@@ -82,15 +82,16 @@ namespace Senit.Core.Messaging.RawRabbit
 
             if (messageHandler != null)
             {
-                _busClient.SubscribeAsync<TMessage, MessageContext>(async (@event, messageContext) =>
+                _busClient.SubscribeAsync<TMessage, MessageContext>(async (message, messageContext) =>
                 {
                     try
                     {
-                        await messageHandler.HandleAsync(@event);
+                        await messageHandler.HandleAsync(message);
                         return new Ack();
                     }
-                    catch (MessageHandlerException)
+                    catch (Exception ex)
                     {
+                        await messageHandler.OnError(message, ex);
                         return new Nack(true);
                     }
                 }, ctx => ctx.UseMessageContext(c =>
@@ -122,19 +123,35 @@ namespace Senit.Core.Messaging.RawRabbit
             });
         }
 
-        public async Task SubscribeAsync<TMessage>(Func<TMessage, Task> subscribeMethod) where TMessage : class
+        public async Task SubscribeAsync<TMessage>(Func<TMessage, Task> subscribeMethod, Func<TMessage, Exception, Task> onErrorMethod = null) where TMessage : class
         {
             await _busClient.SubscribeAsync<TMessage>((message) =>
             {
-                return subscribeMethod.Invoke(message);
+                try
+                {
+                    subscribeMethod.Invoke(message);
+                }
+                catch (Exception ex)
+                {
+                    onErrorMethod?.Invoke(message, ex);
+                }
+                return Task.CompletedTask;
             });
         }
 
-        public async Task SubscribeAsync<TMessage>(string queueName, Func<TMessage, Task> subscribeMethod) where TMessage : class
+        public async Task SubscribeAsync<TMessage>(string queueName, Func<TMessage, Task> subscribeMethod, Func<TMessage, Exception, Task> onErrorMethod = null) where TMessage : class
         {
             await _busClient.SubscribeAsync<TMessage>((message) =>
             {
-                return subscribeMethod.Invoke(message);
+                try
+                {
+                    subscribeMethod.Invoke(message);
+                }
+                catch (Exception ex)
+                {
+                    onErrorMethod?.Invoke(message, ex);
+                }
+                return Task.CompletedTask;
             }, options =>
             {
                 options.UseSubscribeConfiguration(config =>

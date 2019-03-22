@@ -12,9 +12,9 @@ namespace Senit.Core.Messaging
 
         Task<TResponse> RequestAsync<TRequest, TResponse>(TRequest request) where TRequest : class where TResponse : class;
 
-        Task SubscribeAsync<TMessage>(Func<TMessage, Task> subscribeMethod) where TMessage : class;
+        Task SubscribeAsync<TMessage>(Func<TMessage, Task> subscribeMethod, Func<TMessage, Exception, Task> onErrorMethod = null) where TMessage : class;
 
-        Task SubscribeAsync<TMessage>(string queueName, Func<TMessage, Task> subscribeMethod) where TMessage : class;
+        Task SubscribeAsync<TMessage>(string queueName, Func<TMessage, Task> subscribeMethod, Func<TMessage, Exception, Task> onErrorMethod = null) where TMessage : class;
 
         void AddEventHandler<TEvent, TEventHandlerType, TImplementationType>()
             where TEvent : class, IEvent

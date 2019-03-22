@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Senit.Core.Messaging.Events;
 using Senit.Messages.Events;
+using System;
 using System.Threading.Tasks;
 
 namespace Senit.Api.Handlers.Events
@@ -16,7 +17,14 @@ namespace Senit.Api.Handlers.Events
 
         public Task HandleAsync(HelloEvent @event)
         {
-            _logger.LogInformation($"HelloEvent handled from {GetType().Name}.");
+            _logger.LogInformation($"{typeof(HelloEvent).Name} handled from {GetType().Name}.");
+
+            return Task.CompletedTask;
+        }
+
+        public Task OnError(HelloEvent @event, Exception ex)
+        {
+            _logger.LogError($"An error occured while processing message of type '{typeof(HelloEvent).Name}'. Error message: {ex.Message}.");
 
             return Task.CompletedTask;
         }
